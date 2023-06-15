@@ -1,13 +1,13 @@
 import "./App.css"
-import SaludoClase from "./components/SaludoClase"
-import SaludoFuncional from "./components/SaludoFuncional"
+import ContadorClase from "./components/ContadorClase"
+import ContadorFuncional from "./components/ContadorFuncional"
 
 function App() {
     return (
-        <div>
-            <SaludoClase nombre="Gorka" />
-            <SaludoFuncional nombre="Gorka" />
-        </div>
+        <>
+            <ContadorFuncional valorInicial={5} />
+            <ContadorClase valorInicial={5} />
+        </>
     )
 }
 
