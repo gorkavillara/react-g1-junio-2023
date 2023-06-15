@@ -1,20 +1,12 @@
 import "./App.css"
-import ComponenteClase from "./components/ComponenteClase"
-import ComponenteFuncional from "./components/ComponenteFuncional"
-
-export const saludo = <h1>Hola mundo</h1> // eslint-disable-line
-
-export const Boton = () => {
-    return <button>Soy un componente botón</button>
-}
+import SaludoClase from "./components/SaludoClase"
+import SaludoFuncional from "./components/SaludoFuncional"
 
 function App() {
     return (
         <div>
-            {saludo}
-            <Boton />
-            <ComponenteClase />
-            <ComponenteFuncional />
+            <SaludoClase nombre="Gorka" />
+            <SaludoFuncional nombre="Gorka" />
         </div>
     )
 }
