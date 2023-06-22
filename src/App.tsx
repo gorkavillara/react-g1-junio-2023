@@ -2,6 +2,7 @@ import { useState, useMemo } from "react"
 import "./App.css"
 // import CicloVidaClase from "./components/CicloVidaClase"
 import CicloVidaFuncional from "./components/CicloVidaFuncional"
+import Card from "./components/Card"
 
 function App() {
     const [contador, setContador] = useState(0)
@@ -26,11 +27,14 @@ function App() {
     return (
         <>
             {/* {mostrarCicloVida && <CicloVidaClase contador={contador} />} */}
-            <button onClick={() => setContador((v) => v + 1)}>
+            {/* <button onClick={() => setContador((v) => v + 1)}>
                 Incrementa
-            </button>
+            </button> */}
             {/* <button onClick={incrementaContador}>Incrementa</button> */}
-            {mostrarCicloVida && <CicloVidaFuncional contador={contador} />}
+            {/* {mostrarCicloVida && <CicloVidaFuncional contador={contador} />} */}
+            <Card contador={contador} setContador={setContador}>
+                <CicloVidaFuncional contador={contador} />
+            </Card>
         </>
     )
 }
