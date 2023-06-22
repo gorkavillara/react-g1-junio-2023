@@ -1,12 +1,36 @@
+import { useState, useMemo } from "react"
 import "./App.css"
-import ContadorClase from "./components/ContadorClase"
-import ContadorFuncional from "./components/ContadorFuncional"
+// import CicloVidaClase from "./components/CicloVidaClase"
+import CicloVidaFuncional from "./components/CicloVidaFuncional"
 
 function App() {
+    const [contador, setContador] = useState(0)
+
+    // const incrementaContador = () => {
+    //     // setContador(contador + 1) // contador = 14
+    //     // setContador(contador + 1) // contador = 14
+    //     // setContador(contador + 1) // contador = 14
+    //     // setContador(contador + 1) // contador = 14
+    //     setContador((valorAnterior) => valorAnterior + 1)
+    //     setContador((valorAnterior) => valorAnterior + 1)
+    //     setContador((valorAnterior) => valorAnterior + 1)
+    //     setContador((valorAnterior) => valorAnterior + 1)
+    // }
+    // let miValor: number | string = 18
+    // miValor = "hola mundo"
+
+    const mostrarCicloVida = useMemo(() => contador < 10 || contador > 15, [contador])
+
+    // const miNombre = "Gorka"
+
     return (
         <>
-            <ContadorFuncional valorInicial={5} />
-            <ContadorClase valorInicial={5} />
+            {/* {mostrarCicloVida && <CicloVidaClase contador={contador} />} */}
+            <button onClick={() => setContador((v) => v + 1)}>
+                Incrementa
+            </button>
+            {/* <button onClick={incrementaContador}>Incrementa</button> */}
+            {mostrarCicloVida && <CicloVidaFuncional contador={contador} />}
         </>
     )
 }
