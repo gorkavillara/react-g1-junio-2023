@@ -1,4 +1,5 @@
 import "./App.css"
+import EventosTeclado from "./components/EventosTeclado"
 import Formulario from "./components/Formulario"
 function App() {
     // useEffect(() => {
@@ -12,6 +13,7 @@ function App() {
     // }, [])
     return (
         <>
+            <EventosTeclado />
             <button onClick={() => alert("has hecho clic en react")}>Click</button>
             <Formulario />
         </>
