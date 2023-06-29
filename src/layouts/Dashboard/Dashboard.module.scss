@@ -1,0 +1,12 @@
+.Dashboard {
+    nav {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+}
+
+a.active {
+    color: red;
+    background-color: rgba(255, 255, 255, 0.3);
+}

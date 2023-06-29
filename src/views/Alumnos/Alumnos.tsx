@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { Alumno, alumnos } from "../../assets"
 
 const Student = ({
@@ -16,6 +17,7 @@ const Student = ({
         >
             +
         </button>
+        <Link to={`/alumnos/${alumno.id}`}> Detalles</Link>
     </p>
 )
 

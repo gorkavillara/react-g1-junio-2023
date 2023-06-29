@@ -1,9 +1,13 @@
+import { useSearchParams } from "react-router-dom"
 import "./App.scss"
-import { FormularioFormik } from "./views"
 function App() {
+    const [searchParams, iterator] = useSearchParams()
+    console.log(searchParams.get("nombre"))
+    console.log(searchParams.get("email"))
+    console.log(searchParams.get("age"))
     return (
         <>
-            <FormularioFormik />
+            <h1>App</h1>
         </>
     )
 }
