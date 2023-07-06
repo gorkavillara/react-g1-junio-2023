@@ -1,18 +1,11 @@
-import "./App.scss"
-import Contador from "./views/Contador/Contador"
-import ContadorContextProvider from "./contexts/ContadorContextProvider"
-import Hijo from "./components/Hijo"
+import "./Custom.scss"
+import Bootstrap from "./views/Bootstrap/Bootstrap"
 
 function App() {
     return (
         <>
-            <div className="contadores">
-                <ContadorContextProvider>
-                    <Contador />
-                    <Contador />
-                    <Hijo isDarkMode />
-                </ContadorContextProvider>
-            </div>
+            <h1>App</h1>
+            <Bootstrap />
         </>
     )
 }
