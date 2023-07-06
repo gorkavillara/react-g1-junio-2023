@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouteObject, Navigate } from "react-router-dom"
 import App from "../App"
-import { Alumnos, DetalleAlumno } from "../views"
+import { Alumnos, DetalleAlumno, RickMortyAPI } from "../views"
 import { Dashboard } from "../layouts"
 
 const checkAuthentication = (): boolean => {
@@ -23,6 +23,10 @@ export const routes: RouteObject[] = [
             {
                 path: "",
                 element: <App />
+            },
+            {
+                path: "rickmorty",
+                element: <RickMortyAPI />
             },
             {
                 path: "*",

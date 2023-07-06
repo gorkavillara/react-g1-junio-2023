@@ -5,6 +5,7 @@ import Alumnos from "./Alumnos/Alumnos"
 import DetalleAlumno from "./Alumnos/DetalleAlumno"
 import FormularioClasico from "./Formularios/FormularioClasico"
 import FormularioFormik from "./Formularios/FormularioFormik"
+import RickMortyAPI from "./RickMortyAPI/RickMortyAPI"
 
 export {
     Principal,
@@ -14,5 +15,6 @@ export {
     DetalleAlumno,
     FormularioClasico,
     FormularioFormik,
+    RickMortyAPI
 }
 // export default { Principal, Estilos }
