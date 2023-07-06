@@ -1,9 +1,14 @@
-import React from "react"
+import { useContext } from "react"
+import { ContadorContext } from "../contexts/ContadorContextProvider"
 
 const Hijo = ({ isDarkMode }: { isDarkMode: boolean }) => {
-    return <div>
-        <h2 className={`${isDarkMode ? "dark" : "light"}`}>Hijo</h2>
-    </div>
+    const { incrementaContador } = useContext(ContadorContext)
+    return (
+        <div>
+            <h2 className={`${isDarkMode ? "dark" : "light"}`}>Hijo</h2>
+            <button onClick={incrementaContador}>Incrementa</button>
+        </div>
+    )
 }
 
 export default Hijo

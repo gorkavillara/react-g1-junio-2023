@@ -1,17 +1,18 @@
-// import { useState } from "react"
 import "./App.scss"
-// import Hijo from "./components/Hijo"
 import Contador from "./views/Contador/Contador"
-import ContadorConHook from "./views/Contador/ContadorConHook"
+import ContadorContextProvider from "./contexts/ContadorContextProvider"
+import Hijo from "./components/Hijo"
+
 function App() {
-    // const [isDarkMode, setIsDarkMode] = useState(false)
     return (
         <>
-            {/* <h1 className={`${isDarkMode ? "dark" : "light"}`}>
-                App
-            </h1>
-            <Hijo isDarkMode={isDarkMode} /> */}
-            <ContadorConHook />
+            <div className="contadores">
+                <ContadorContextProvider>
+                    <Contador />
+                    <Contador />
+                    <Hijo isDarkMode />
+                </ContadorContextProvider>
+            </div>
         </>
     )
 }
