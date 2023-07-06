@@ -2,6 +2,7 @@ import { createBrowserRouter, RouteObject, Navigate } from "react-router-dom"
 import App from "../App"
 import { Alumnos, DetalleAlumno, RickMortyAPI } from "../views"
 import { Dashboard } from "../layouts"
+import RickMortyQuery from "../views/RickMortyAPI/RickMortyQuery"
 
 const checkAuthentication = (): boolean => {
     console.log("Ejecutando")
@@ -26,7 +27,8 @@ export const routes: RouteObject[] = [
             },
             {
                 path: "rickmorty",
-                element: <RickMortyAPI />
+                // element: <RickMortyAPI />
+                element: <RickMortyQuery />
             },
             {
                 path: "*",
