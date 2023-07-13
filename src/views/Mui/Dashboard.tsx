@@ -21,6 +21,7 @@ import Link from '@mui/material/Link';
 import { IoCaretBack as ChevronLeftIcon, IoMenu as MenuIcon, IoNotifications as NotificationsIcon } from "react-icons/io5"
 
 import { mainListItems, secondaryListItems } from './listItems';
+import TresSesentaIcon from '../../components/icons/TresSesentaIcon';
 // import Chart from './Chart';
 // import Deposits from './Deposits';
 // import Orders from './Orders';
@@ -191,9 +192,12 @@ export default function Dashboard() {
                     display: 'flex',
                     flexDirection: 'column',
                     height: 240,
+                    color: "red"
                   }}
                 >
                   {/* <Deposits /> */}
+                  <MenuIcon />
+                  <TresSesentaIcon />
                 </Paper>
               </Grid>
               {/* Recent Orders */}
