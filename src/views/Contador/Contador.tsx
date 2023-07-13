@@ -1,17 +1,42 @@
-import { useContext } from "react"
-import { ContadorContext } from "../../contexts/ContadorContextProvider"
-import useContador from "../../hooks/useContador"
+import { useState, useMemo, useCallback } from "react"
+import Monitor from "./Monitor"
+import Controles from "./Controles"
+
+const calculoSuperGrande = (valor: number) => {
+    let suma = 0
+    for (let i = 0; i < 923456789; i++) {
+        suma++
+    }
+    return valor * 2
+}
 
 const Contador = () => {
-    // const { contador, incrementaContador, incrementaCinco } = useContador()
-    const { contador, incrementaContador, incrementaCinco } = useContext(ContadorContext)
+    const [contador, setContador] = useState(0)
+    const [toggle, setToggle] = useState(false)
 
+    // const dobleContador = calculoSuperGrande(contador)
+    // const dobleContador = useMemo(() => calculoSuperGrande(contador), [contador])
+    const dobleContador = 2 * contador
+
+    // const decrementa = useCallback(() => setContador(contador - 1), [contador])
+    // const incrementa = useCallback(() => setContador(contador + 1), [contador])
+
+    // function decrementa() {
+    //     setContador((prev) => prev - 1)
+    // }
+    // function incrementa() {
+    //     setContador((prev) => prev + 1)
+    // }
+
+    const decrementa = useCallback(() => setContador((prev) => prev - 1), [])
+    const incrementa = useCallback(() => setContador((prev) => prev + 1), [])
     return (
-        <div>
-            <h2>Contador: {contador}</h2>
-            <button onClick={incrementaContador}>Incrementa</button>
-            <button onClick={incrementaCinco}>Incrementa 5</button>
-        </div>
+        <>
+            <h2>Contador</h2>
+            <button onClick={() => setToggle((prev) => !prev)}>Cambia</button>
+            <Monitor contador={dobleContador} />
+            <Controles decrementa={decrementa} incrementa={incrementa} />
+        </>
     )
 }
 
