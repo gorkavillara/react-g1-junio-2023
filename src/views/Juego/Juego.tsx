@@ -2,6 +2,11 @@ import { useState, useEffect } from "react"
 import EnviaTiempo from "./components/EnviaTiempo"
 import { tiempoInstance } from "../../assets/axiosInstances"
 
+interface Tiempo {
+    tiempo: number,
+    nombre: string
+}
+
 const frases = [
     "Mi mamá me mima",
     "Supercalifragilisticoexpialidoso",
@@ -10,11 +15,11 @@ const frases = [
 ]
 
 const Juego = () => {
-    const [fraseObjetivo, setFraseObjetivo] = useState(frases[1])
+    const [fraseObjetivo] = useState(frases[1])
     const [fraseEscrita, setFraseEscrita] = useState("")
     const [startTime, setStartTime] = useState<Date | null>(null)
     const [tiempo, setTiempo] = useState<number | null>(null)
-    const [tiempos, setTiempos] = useState<any>([])
+    const [tiempos, setTiempos] = useState<Tiempo[]>([])
 
     useEffect(() => {
         obtenTiempos()
@@ -36,7 +41,7 @@ const Juego = () => {
     const chequeaInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
         // console.log(e.key)
         if (fraseEscrita.length === 0) setStartTime(new Date())
-        const siguienteLetra = fraseObjetivo.at(fraseEscrita.length)
+        const siguienteLetra = fraseObjetivo[fraseEscrita.length]
         if (e.key !== siguienteLetra) return
 
         setFraseEscrita((frase) => `${frase}${e.key}`)
@@ -44,7 +49,7 @@ const Juego = () => {
 
     const obtenTiempos = () => {
         tiempoInstance
-            .post("/tiempos", { action: "get" })
+            .post<Tiempo[]>("/tiempos", { action: "get" })
             .then((res) => setTiempos(res.data))
             .catch(console.error)
     }
@@ -62,8 +67,8 @@ const Juego = () => {
             {tiempo && <EnviaTiempo tiempo={tiempo} />}
             <h3>Ranking</h3>
             {tiempos &&
-                tiempos.map((tiempo) => (
-                    <div key={tiempo.tiempo}>
+                tiempos.map((tiempo: Tiempo, index) => (
+                    <div key={index}>
                         {tiempo.nombre}: {tiempo.tiempo}
                     </div>
                 ))}
