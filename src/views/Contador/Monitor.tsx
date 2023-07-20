@@ -10,7 +10,12 @@ import { memo } from "react"
 
 const BaseMonitor = ({ contador }: { contador: number }) => {
     // const resultado = calculoSuperGrande()
-    return <div>El valor del contador es {contador}</div>
+    return (
+        <div>
+            El valor del contador es{" "}
+            <span title="contador-value">{contador}</span>
+        </div>
+    )
 }
 
 // const Monitor = BaseMonitor

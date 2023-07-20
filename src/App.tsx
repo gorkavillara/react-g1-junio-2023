@@ -1,11 +1,8 @@
 import "./App.scss"
+import RickMorty from "./views/RickMorty/RickMorty"
 
 function App() {
-    return (
-        <>
-            App
-        </>
-    )
+    return <RickMorty />
 }
 
 export default App
