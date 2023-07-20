@@ -18,7 +18,6 @@ const FormularioNuevoCliente = ({ buscaClientes }: { buscaClientes: () => void }
             ...prev,
             [e.target.name]: e.target.value,
         }))
-
     const creaCliente = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         clientsInstance
